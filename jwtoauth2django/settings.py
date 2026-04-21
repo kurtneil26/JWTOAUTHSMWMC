@@ -28,6 +28,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+CORS_ALLOW_ALL_ORIGINS = True
+
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.SessionAuthentication',
@@ -58,6 +60,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'oauth2_provider',
     'api',
+    'corsheaders',
 
     # Django core
     'django.contrib.sites',
@@ -90,6 +93,7 @@ ACCOUNT_SIGNUP_FIELDS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',

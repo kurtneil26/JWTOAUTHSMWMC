@@ -17,15 +17,19 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from api.views import CategoryViewSet, ProductViewSet
+from api.views import loan_typesViewSet, usersViewSet, loanapplicationViewSet, payment_scheduleViewSet, reportViewSet, loan_documentsViewSet
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
 )
 
 router = DefaultRouter()
-router.register(r'category', CategoryViewSet)
-router.register(r'product', ProductViewSet)
+router.register(r'loan_types', loan_typesViewSet)
+router.register(r'users', usersViewSet)
+router.register(r'loanapplications', loanapplicationViewSet)
+router.register(r'payment_schedules', payment_scheduleViewSet)
+router.register(r'reports', reportViewSet)
+router.register(r'loan_documents', loan_documentsViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
